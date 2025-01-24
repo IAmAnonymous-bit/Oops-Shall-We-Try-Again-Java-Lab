@@ -8,32 +8,26 @@ public class App
 
     
     boolean isValid = false;
-    int value = 0;
     System.out.println("Hello!");
-
-    while (isValid == false)
+    int value = 0;
+    System.out.println("Please enter a value:");
+    Scanner in = new Scanner(System.in);
+    if (in.hasNextInt())
     {
-      System.out.println("Please enter a value:");
-      Scanner in = new Scanner(System.in);
-      if (in.hasNextInt())
+      value = in.nextInt();
+      if (lower <= value && upper >= value)
       {
-        value = in.nextInt();
-        if (lower <= value && upper >= value)
-        {
-          isValid = true;
-        } else {
-          System.out.println("Error: Value is out of bounds");
-        }
+        isValid = true;
       } else {
-        System.out.println("Error: Value is not an Int");
-
+        System.out.println("Error: Value is out of bounds");
       }
-
-      in.close();
-
-      System.out.println();
-
+    } else {
+      return "Error: Value is not an Int";
     }
+    in.close();
+
+    System.out.println();
+
 
     String str = String.valueOf(value);
     return "Your value is " + str;
