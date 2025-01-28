@@ -3,16 +3,14 @@ import java.util.Scanner;
 
 public class App 
 {
-  public static String getInput(int lower, int upper) {
+  public static String getInput(int lower, int upper, String prompt, String error) {
     // Implement your function here
-
-    
     boolean isValid = false;
     System.out.println("Hello!");
     int value = 0;
     while (isValid == false)
     {
-      System.out.println("Please enter a value:");
+      System.out.println(prompt);
       Scanner in = new Scanner(System.in);
 
       if (in.hasNextInt())
@@ -23,16 +21,15 @@ public class App
         {
           isValid = true;
         } else {
-          System.out.println("Error: Value is out of bounds");
+          System.out.println(error);
         }
 
       } else {
-        return "Error: Value is not an Int";
+        return error;
 
       }
       
       in.close();
-
       System.out.println();
 
     }
@@ -46,7 +43,7 @@ public class App
   public static void main(String[] args) 
   {
     // Test your function here in a driver program
-    System.out.println(getInput(-50,50));
+    System.out.println(getInput(-50,50, "Please Enter a Value:", "Error: Try Again"));
 
   }
 
