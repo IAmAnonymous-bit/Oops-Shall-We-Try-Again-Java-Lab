@@ -8,25 +8,25 @@ public class App
     boolean isValid = false;
     System.out.println("Hello!");
     int value = 0;
+
     while (isValid == false)
     {
-      System.out.println(prompt);
       Scanner in = new Scanner(System.in);
-
+      System.out.println(prompt);
       if (in.hasNextInt())
-      { 
+      {
         value = in.nextInt();
 
         if (lower <= value && upper >= value)
-        {
+        { 
           isValid = true;
+
         } else {
           System.out.println(error);
         }
 
       } else {
-        return error;
-
+        System.out.println(error);
       }
       
       in.close();
